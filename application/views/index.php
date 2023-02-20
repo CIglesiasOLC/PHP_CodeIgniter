@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Using Views Lesson</title>
+    <title><?php echo $title; ?></title>
 </head>
 <body>
     <h1>This is a heading</h1>
