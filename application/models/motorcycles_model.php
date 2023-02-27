@@ -18,4 +18,9 @@ class Motorcycles_model extends CI_Model{
     public function add($data){
         return $this->db->insert("motorcycles", $data);
     }
+
+    public function edit($id, $data){
+        $this->db->where(array("mc_id" => $id));
+        return $this->db->update("motorcycles", $data);
+    }
 }

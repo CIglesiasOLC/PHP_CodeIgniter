@@ -62,4 +62,30 @@ class Motorcycles extends CI_Controller{
             redirect("/codeigniter/motorcycles");
         }
     }
+
+    public function verifyEdit($mc_id = ""){
+        $this->form_validation->set_rules("brand", "Brand", "required|callback_brand_check");
+        $this->form_validation->set_rules("model", "Model", "required");
+        $this->form_validation->set_rules("displacement", "Displacement", "required");
+
+        if ($this->form_validation->run() == true){
+            $data = array(
+                "mc_brand" => $this->input->post("brand"),
+                "mc_model" => $this->input->post("model"),
+                "mc_displacement" => $this->input->post("displacement")
+            );
+            
+            $this->load->model("Motorcycles_model");
+            $isUpdated = $this->Motorcycles_model->edit($mc_id, $data);
+
+            if ($isUpdated){
+                echo "Success!";
+            } else {
+                echo "Oops! Something went wrong.";
+            }
+        }
+        else {
+            $this->edit($mc_id);
+        }
+    }
 }
