@@ -12,4 +12,10 @@ class Motorcycles extends CI_Controller{
 
         $this->load->view("pages/motorcycles", $data);
     }
+
+    public function add(){
+        $data["title"] = "Add Motorcycle";
+
+        $this->load->view("pages/motorcycle_add", $data);
+    }
 }
