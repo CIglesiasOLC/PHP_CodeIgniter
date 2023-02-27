@@ -14,8 +14,17 @@ class Motorcycles extends CI_Controller{
     }
 
     public function add(){
-        $data["title"] = "Add Motorcycle";
+        $data["title"] = "Add Motorcycle Record";
 
-        $this->load->view("pages/motorcycle_add", $data);
+        $this->form_validation->set_rules("brand", "Brand", "required");
+        $this->form_validation->set_rules("model", "Model", "required");
+        $this->form_validation->set_rules("displacement", "Displacement", "required");
+
+        if ($this->form_validation->run() == true){
+            echo 'Success!';
+        }
+        else {
+            $this->load->view("pages/motorcycle_add", $data);
+        }
     }
 }
