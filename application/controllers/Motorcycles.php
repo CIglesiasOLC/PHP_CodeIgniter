@@ -21,7 +21,20 @@ class Motorcycles extends CI_Controller{
         $this->form_validation->set_rules("displacement", "Displacement", "required");
 
         if ($this->form_validation->run() == true){
-            echo 'Success!';
+            $data = array(
+                "mc_brand" => $this->input->post("brand"),
+                "mc_model" => $this->input->post("model"),
+                "mc_displacement" => $this->input->post("displacement")
+            );
+            
+            $this->load->model("Motorcycles_model");
+            $isAdded = $this->Motorcycles_model->add($data);
+            
+            if ($isAdded){
+                echo "Success!";
+            } else {
+                echo "Oops! Something went wrong.";
+            }
         }
         else {
             $this->load->view("pages/motorcycle_add", $data);

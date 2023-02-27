@@ -9,4 +9,8 @@ class Motorcycles_model extends CI_Model{
         $result = $this->db->get("motorcycles");
         return $result->result_array();
     }
+
+    public function add($data){
+        return $this->db->insert("motorcycles", $data);
+    }
 }
