@@ -29,7 +29,7 @@ class Motorcycles extends CI_Controller{
             
             $this->load->model("Motorcycles_model");
             $isAdded = $this->Motorcycles_model->add($data);
-            
+
             if ($isAdded){
                 echo "Success!";
             } else {
@@ -47,6 +47,19 @@ class Motorcycles extends CI_Controller{
             return false;
         }else {
             return true;
+        }
+    }
+
+    public function edit($mc_id = ""){
+        if ($mc_id){
+            $data["title"] = "Edit Motorcycle Record";
+
+            $this->load->model("Motorcycles_model");
+            $data["motorcycles"] = $this->Motorcycles_model->get_motorcycles($mc_id);
+
+            $this->load->view("pages/motorcycle_edit", $data);
+        } else {
+            redirect("/codeigniter/motorcycles");
         }
     }
 }
