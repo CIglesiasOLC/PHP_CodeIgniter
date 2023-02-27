@@ -88,4 +88,22 @@ class Motorcycles extends CI_Controller{
             $this->edit($mc_id);
         }
     }
+
+    public function delete($mc_id = ""){
+        $this->load->model("Motorcycles_model");
+        $data["mc"] = $this->Motorcycles_model->get_motorcycles($mc_id);
+
+        if ($data["mc"]){
+            $isDeleted = $this->Motorcycles_model->delete($mc_id);
+
+            if ($isDeleted){
+                echo "Success!";
+            } else {
+                echo "Oops! Something went wrong.";
+            }
+        }
+        else {
+            redirect("/codeigniter/motorcycles");
+        }
+    }
 }

@@ -23,7 +23,8 @@
                 <td><?php echo $motorcycle["mc_displacement"]; ?></td>
                 <td>
                     <a href="<?php echo ('/codeigniter/motorcycles/edit/'. $motorcycle['mc_id']); ?>">Edit</a>
-                    <a href="<?php echo ('/codeigniter/motorcycles/delete/'. $motorcycle['mc_id']); ?>">Delete</a>
+                    <a href="<?php echo ('/codeigniter/motorcycles/delete/'. $motorcycle['mc_id']); ?>"
+                        onclick="return confirm('Are you sure?');">Delete</a>
                 </td>
             </tr>
             <?php endforeach; ?>

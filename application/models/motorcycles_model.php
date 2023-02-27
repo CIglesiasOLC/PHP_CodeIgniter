@@ -23,4 +23,9 @@ class Motorcycles_model extends CI_Model{
         $this->db->where(array("mc_id" => $id));
         return $this->db->update("motorcycles", $data);
     }
+
+    public function delete($id){
+        $data = array("mc_id" => $id);
+        return $this->db->delete("motorcycles", $data);
+    }
 }
