@@ -59,7 +59,7 @@ class Motorcycles extends CI_Controller{
 
             $this->load->view("pages/motorcycle_edit", $data);
         } else {
-            redirect("/codeigniter/motorcycles");
+            redirect(base_url("motorcycles"));
         }
     }
 
@@ -103,7 +103,7 @@ class Motorcycles extends CI_Controller{
             }
         }
         else {
-            redirect("/codeigniter/motorcycles");
+            redirect(base_url("motorcycles"));
         }
     }
 }

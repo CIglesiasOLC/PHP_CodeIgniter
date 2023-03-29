@@ -12,7 +12,7 @@
                 <th>Brand</th>
                 <th>Model</th>
                 <th>Displacement</th>
-            </tr>
+            </tr>   
         </thead>
         <tbody>
             <?php foreach($motorcycles as $motorcycle): ?>
@@ -22,8 +22,8 @@
                 <td><?php echo $motorcycle["mc_model"]; ?></td>
                 <td><?php echo $motorcycle["mc_displacement"]; ?></td>
                 <td>
-                    <a href="<?php echo ('/codeigniter/motorcycles/edit/'. $motorcycle['mc_id']); ?>">Edit</a>
-                    <a href="<?php echo ('/codeigniter/motorcycles/delete/'. $motorcycle['mc_id']); ?>"
+                    <a href="<?php echo base_url('motorcycles/edit/'. $motorcycle['mc_id']); ?>">Edit</a>
+                    <a href="<?php echo base_url('motorcycles/delete/'. $motorcycle['mc_id']); ?>"
                         onclick="return confirm('Are you sure?');">Delete</a>
                 </td>
             </tr>
