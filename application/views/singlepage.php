@@ -16,15 +16,23 @@
                 <th>Brand</th>
                 <th>Model</th>
                 <th>Displacement</th>
-                <th>Action</th>
             </tr>   
         </thead>
-        <tbody>
-        </tbody>
     </table>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#motorcycle-table").DataTable();
+            $("#motorcycle-table").DataTable({
+                "ajax": {
+                    "url": "<?php echo base_url('motorcyclesapi');?>",
+                    "dataSrc": "data"
+                },
+                "columns": [
+                    { "data": "mc_id" },
+                    { "data": "mc_brand" },
+                    { "data": "mc_model" },
+                    { "data": "mc_displacement" }
+                ] 
+            });
         });
     </script>
 </body>
